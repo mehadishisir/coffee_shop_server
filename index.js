@@ -33,6 +33,11 @@ async function run() {
       const result = await coffeecollection.insertOne(newCoffee);
       res.send(result);
     });
+    // r operations
+    app.get("/coffees", async (req, res) => {
+      const result = await coffeecollection.find().toArray();
+      res.send(result);
+    });
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
