@@ -64,6 +64,11 @@ async function run() {
       res.send(result);
     });
     // user related api
+    // get data
+    app.get("/users", async (req, res) => {
+      const result = await userCollection.find().toArray();
+      res.send(result);
+    });
     app.post("/users", async (req, res) => {
       const newUser = req.body;
       console.log(newUser);
